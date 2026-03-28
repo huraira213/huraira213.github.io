@@ -1,0 +1,441 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// PostgreSQL-inspired Dark Theme
+:root {
+  --pg-blue: #336791;
+  --pg-blue-light: #4a90d9;
+  --bg-dark: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #1c2128;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --accent-green: #3fb950;
+  --accent-orange: #fb8500;
+  --border-color: #30363d;
+  --code-bg: #161b22;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Droid Sans Mono', monospace;
+  background: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+// Header with terminal aesthetic
+.page-header {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, var(--pg-blue) 100%);
+  padding: 4rem 2rem;
+  text-align: center;
+  border-bottom: 2px solid var(--pg-blue);
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: '> psql -U huraira -d postgresql_internals';
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: var(--accent-green);
+  opacity: 0.5;
+}
+
+.page-header h1 {
+  font-size: 3rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.page-header .tagline {
+  font-size: 1.2rem;
+  color: var(--pg-blue-light);
+  font-weight: 400;
+}
+
+// Hero section with photo
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem;
+  align-items: center;
+}
+
+.hero-photo {
+  position: relative;
+}
+
+.hero-photo img {
+  width: 100%;
+  max-width: 300px;
+  border-radius: 8px;
+  border: 3px solid var(--pg-blue);
+  box-shadow: 0 8px 24px rgba(51, 103, 145, 0.3);
+}
+
+.hero-photo::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--pg-blue);
+  border-radius: 8px;
+  z-index: -1;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.hero-content .subtitle {
+  font-size: 1.3rem;
+  color: var(--pg-blue-light);
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+// Stats grid (like Example 3)
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.stat-card:hover {
+  border-color: var(--pg-blue);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(51, 103, 145, 0.2);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  color: var(--pg-blue-light);
+  font-weight: 700;
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+// Terminal-style sections
+.terminal-section {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  margin: 2rem auto;
+  max-width: 1200px;
+  overflow: hidden;
+}
+
+.terminal-header {
+  background: var(--bg-tertiary);
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.terminal-header::before {
+  content: '●●●';
+  color: var(--text-secondary);
+  letter-spacing: 3px;
+}
+
+.terminal-title {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+}
+
+.terminal-body {
+  padding: 2rem;
+}
+
+// Project cards (dark theme)
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.project-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--pg-blue);
+  transform: scaleY(0);
+  transition: transform 0.3s;
+}
+
+.project-card:hover::before {
+  transform: scaleY(1);
+}
+
+.project-card:hover {
+  border-color: var(--pg-blue);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(51, 103, 145, 0.2);
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.project-status {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  background: var(--accent-green);
+  color: var(--bg-dark);
+  font-weight: 600;
+}
+
+.project-tech {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.project-description {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.tag {
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: var(--pg-blue-light);
+}
+
+// Buttons
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--pg-blue);
+  color: var(--text-primary);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+  border: 1px solid var(--pg-blue);
+  margin-right: 0.5rem;
+}
+
+.btn:hover {
+  background: var(--pg-blue-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(51, 103, 145, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--pg-blue);
+}
+
+// Code blocks
+pre {
+  background: var(--code-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+code {
+  font-family: 'SF Mono', 'Monaco', monospace;
+  font-size: 0.9rem;
+  color: var(--accent-green);
+}
+
+p code {
+  background: var(--bg-tertiary);
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  color: var(--pg-blue-light);
+}
+
+// Timeline (for experience)
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin: 2rem 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--pg-blue);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1.5rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0.25rem;
+  width: 12px;
+  height: 12px;
+  background: var(--pg-blue);
+  border-radius: 50%;
+  border: 3px solid var(--bg-dark);
+}
+
+.timeline-item h3 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-date {
+  color: var(--accent-orange);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+// Info boxes
+.info-box, .warning-box, .error-box {
+  border-left: 4px solid;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 4px;
+  background: var(--bg-secondary);
+}
+
+.info-box {
+  border-left-color: var(--pg-blue);
+}
+
+.warning-box {
+  border-left-color: var(--accent-orange);
+}
+
+.error-box {
+  border-left-color: #f85149;
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  
+  .hero-photo img {
+    margin: 0 auto;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// Footer
+footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+footer a {
+  color: var(--pg-blue-light);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--pg-blue);
+  text-decoration: underline;
+}
