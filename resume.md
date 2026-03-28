@@ -1,3 +1,8 @@
+---
+layout: default
+title: Resume - Huraira Khurshid
+---
+
 # Huraira Khurshid
 **Database Engine Developer**
 
@@ -130,3 +135,11 @@ Virtual University of Pakistan
 ## References
 
 Available upon request
+
+---
+
+## Download Markdown Resume
+
+<div class="info-box">
+  <p><strong>Download Source:</strong> <a href="about.md" download="Huraira_Khurshid_Resume.md">Download Resume (.md)</a></p>
+</div>

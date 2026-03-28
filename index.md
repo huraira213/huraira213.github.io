@@ -33,7 +33,7 @@ title: Huraira Khurshid - Database Engine Developer
     </div>
     
     <div>
-      <a href="about.html" class="btn">View Resume →</a>
+      <a href="resume.html" class="btn">View Resume →</a>
       <a href="https://github.com/huraira213" class="btn btn-secondary">GitHub</a>
       <a href="https://linkedin.com/in/huraira-kiyani-05497429b" class="btn btn-secondary">LinkedIn</a>
     </div>
@@ -204,8 +204,8 @@ tools:
 </div>
 
 <footer>
-  <p>📧 <a href="mailto:hurairakhurshid4@gmail.com">hurairakhurshid4@gmail.com</a></p>
-  <p>🔗 <a href="https://github.com/huraira213">GitHub</a> • <a href="https://linkedin.com/in/huraira-kiyani-05497429b">LinkedIn</a></p>
+  <p><a href="mailto:hurairakhurshid4@gmail.com">hurairakhurshid4@gmail.com</a></p>
+  <p><a href="https://github.com/huraira213">GitHub</a> • <a href="https://linkedin.com/in/huraira-kiyani-05497429b">LinkedIn</a></p>
   <p style="margin-top: 1rem; color: var(--text-secondary);">
     © 2026 Huraira Khurshid • Database Engine Developer
   </p>
