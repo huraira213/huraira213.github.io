@@ -1,0 +1,28 @@
+# Jekyll config
+title: Huraira Khurshid - Database Engine Developer
+description: PostgreSQL internals, C extensions, and systems programming
+author: Huraira Khurshid
+email: hurairakhurshid4@gmail.com
+github_username: huraira213
+linkedin_username: huraira-kiyani-05497429b
+
+# Theme
+theme: minima
+markdown: kramdown
+
+# Navigation
+header_pages:
+  - index.md
+  - about.md
+  - learning/postgresql-internals.md
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
